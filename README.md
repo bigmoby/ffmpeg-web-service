@@ -21,7 +21,7 @@ docker build -t bigmoby/web-ffmpeg:latest
 
 Run the Docker container:
 ```bash
-docker run -p 80:3000 bigmoby/web-ffmpeg:latest
+docker run -p 80:3000 bigmoby/web-ffmpeg:latest 
 ```
 
 ```bash
