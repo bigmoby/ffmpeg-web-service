@@ -21,7 +21,6 @@ require('express-readme')(app, {
 app.use(cors());
 app.use(compression());
 
-// Normal express config defaults
 app.use(require('morgan')('dev'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -46,9 +45,11 @@ app.use(function (err, req, res, next) {
 
     let log = JSON.stringify({
         type: 'ffmpeg',
-        message: err,
+        message: err.message,
     });
+
     winston.error(log);
+
     res.status(err.status || 500);
 
     res.json({
@@ -59,8 +60,6 @@ app.use(function (err, req, res, next) {
     });
 });
 
-
-
 var server = app.listen(consts.port, function () {
 
     let host = server.address().address;
@@ -70,5 +69,3 @@ var server = app.listen(consts.port, function () {
         url: 'http://' + host + ':' + port,
     }));
 });
-
-
