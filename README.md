@@ -4,7 +4,7 @@ A web service for converting video files using Nodejs, Express and FFMPEG
 
 ## Docker image
 
-https://hub.docker.com/bigmoby/TODO
+https://hub.docker.com/repository/docker/bigmoby/web-ffmpeg
 
 ## Endpoints
 
