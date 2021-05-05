@@ -8,6 +8,12 @@ https://hub.docker.com/bigmoby/TODO
 
 ## Endpoints
 
-> GET /stream - Convert demo video file in rtmp stream
+> GET /stream?rtmp=[RTMP-URL] - Convert demo video file in rtmp stream
 
 > GET /readme - Web Service Readme
+
+## Example
+
+```bash
+curl --location --request GET 'http://192.168.1.31/stream?rtmp=rtmp://bc.msmdn.net/event/XXXXXXXXX/YYYYYYYYYYY'
+```
