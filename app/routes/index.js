@@ -11,9 +11,7 @@ router.get('/stream', function (req, res, next) {
     winston.info("Sending stream flow to [" + rtmpUrl + "]");
 
     ffmpeg('./app/media/official_test_source_2s_keys_24pfs.mp4')
-        .native()
-        .audioCodec('copy')
-        .format('flv')
+        .usingPreset('flashvideo')
         .on('start', function () {
             let data = JSON.stringify({
                 action: 'ffmpeg',
