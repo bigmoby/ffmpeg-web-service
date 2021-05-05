@@ -14,6 +14,16 @@ https://hub.docker.com/bigmoby/TODO
 
 ## Example
 
+Build the Docker container:
+```bash
+docker build -t bigmoby/web-ffmpeg:latest 
+```
+
+Run the Docker container:
+```bash
+docker run -p 80:3000 bigmoby/web-ffmpeg:latest
+```
+
 ```bash
 curl --location --request GET 'http://192.168.1.31/stream?rtmp=rtmp://bc.msmdn.net/event/XXXXXXXXX/YYYYYYYYYYY'
 ```
