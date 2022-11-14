@@ -7,20 +7,21 @@ winston.add(winston.transports.Console, { 'timestamp': true });
 
 router.get('/stream', function (req, res, next) {
     var rtmpUrl = req.query.rtmp;
-    var loopParam = req.query.loop; 
+    var loopCount = req.query.loop; 
     var loopInput = new Array(2); 
 
-    if (loopParam ) {
+    if (loopCount) {
+        var loopCommand = new String('-stream_loop ' + loopCount);
         loopInput = [
-            '-stream_loop 3',
-            '-c copy'
+            loopCommand
           ];
     }
 
-    winston.info("Sending stream flow to [" + rtmpUrl + "] and loopParam [" + loopParam + "]");
+    winston.info("Sending stream flow to [" + rtmpUrl + "] and loop command [" + loopInput + "]");
 
     ffmpeg('./app/media/official_test_source_2s_keys_24pfs.mp4')
         .inputOptions(loopInput)
+        .videoCodec('copy')
         .usingPreset('flashvideo')
         .on('start', function () {
             let data = JSON.stringify({

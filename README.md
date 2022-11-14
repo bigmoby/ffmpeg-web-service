@@ -8,9 +8,9 @@ https://hub.docker.com/repository/docker/bigmoby/web-ffmpeg
 
 ## Endpoints
 
-Convert demo video file in rtmp stream. `loop` param, create a loop stream,  is not mandatory.
+Convert demo video file in rtmp stream. `loop` param for loop count assignment, it's not mandatory.
 
-> GET /stream?rtmp=[RTMP-URL]&loop
+> GET /stream?rtmp=[RTMP-URL]&loop=[LOOP-COUNT]
 
 > GET /readme - Web Service Readme
 
@@ -33,5 +33,5 @@ curl --location --request GET 'http://192.168.1.31/stream?rtmp=rtmp://bc.msmdn.n
 ```
 
 ```bash
-curl --location --request GET 'http://192.168.1.31/stream?rtmp=rtmp://bc.msmdn.net/event/XXXXXXXXX/YYYYYYYYYYY&loop'
+curl --location --request GET 'http://192.168.1.31/stream?rtmp=rtmp://bc.msmdn.net/event/XXXXXXXXX/YYYYYYYYYYY&loop=3'
 ```
